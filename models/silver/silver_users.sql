@@ -1,4 +1,9 @@
-{{ config(materialized='table') }}
+{{
+    config(
+        materialized='table',
+        alias='users'
+    )
+}}
 
 with source_data as (
     select

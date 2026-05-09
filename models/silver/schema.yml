@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: users
+  - name: silver_users
     description: Limpeza e padronizacao da dimensao de usuarios.
     columns:
       - name: user_id
@@ -32,7 +32,7 @@ models:
           - accepted_values:
               values: ['active', 'inactive']
 
-  - name: courses
+  - name: silver_courses
     description: Limpeza e padronizacao do catalogo de cursos.
     columns:
       - name: course_id
@@ -53,7 +53,7 @@ models:
         tests:
           - not_null
 
-  - name: enrollments
+  - name: silver_enrollments
     description: Limpeza e padronizacao das matriculas dos usuarios.
     columns:
       - name: enrollment_id
@@ -66,14 +66,14 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('users')
+              to: ref('silver_users')
               field: user_id
       - name: course_id
         description: Identificador do curso matriculado.
         tests:
           - not_null
           - relationships:
-              to: ref('courses')
+              to: ref('silver_courses')
               field: course_id
       - name: enrolled_at
         description: Data da matricula convertida para timestamp.
@@ -86,7 +86,7 @@ models:
           - accepted_values:
               values: ['active', 'cancelled']
 
-  - name: questions
+  - name: silver_questions
     description: Limpeza e padronizacao das perguntas.
     columns:
       - name: question_id
@@ -110,7 +110,7 @@ models:
         tests:
           - not_null
 
-  - name: answers
+  - name: silver_answers
     description: Limpeza e padronizacao das respostas dos usuarios.
     columns:
       - name: answer_id
@@ -122,14 +122,14 @@ models:
         description: Identificador do usuario que respondeu.
         tests:
           - relationships:
-              to: ref('users')
+              to: ref('silver_users')
               field: user_id
       - name: question_id
         description: Identificador da pergunta respondida.
         tests:
           - not_null
           - relationships:
-              to: ref('questions')
+              to: ref('silver_questions')
               field: question_id
       - name: is_correct
         description: Indicador se a resposta estava correta.
