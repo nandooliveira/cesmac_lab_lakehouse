@@ -1,0 +1,8 @@
+lab_lakehouse:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "dev.duckdb"
+      schema: cesmac
+      threads: 4

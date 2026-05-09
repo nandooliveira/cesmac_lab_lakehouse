@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: bronze
+    description: Dados brutos em parquet dentro de lab_lakehouse/data.
+    tables:
+      - name: answers
+        description: Respostas dos usuarios.
+        meta:
+          external_location: "read_parquet('data/answers.parquet')"
+
+      - name: courses
+        description: Catalogo de cursos.
+        meta:
+          external_location: "read_parquet('data/courses.parquet')"
+
+      - name: enrollments
+        description: Matriculas dos usuarios.
+        meta:
+          external_location: "read_parquet('data/enrollments.parquet')"
+
+      - name: questions
+        description: Perguntas do sistema.
+        meta:
+          external_location: "read_parquet('data/questions.parquet')"
+
+      - name: users
+        description: Dados cadastrais de usuarios.
+        meta:
+          external_location: "read_parquet('data/users.parquet')"
