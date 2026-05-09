@@ -1,5 +1,25 @@
 
 target/
 dbt_packages/
-logs/
 dbt_internal_packages/
+logs/
+
+# Banco de dados local
+*.duckdb
+*.duckdb.wal
+
+# Configurações pessoais do dbt
+.user.yml
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# IDEs
+.idea/
+.vscode/
